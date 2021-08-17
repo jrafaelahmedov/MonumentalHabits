@@ -7,23 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C43176DF26CA36800053FEF3 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43176DE26CA36800053FEF3 /* Utils.swift */; };
+		C47A6C4226CB87EF003AB8C4 /* Manrope-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C47A6C4126CB87EF003AB8C4 /* Manrope-Medium.ttf */; };
+		C47A6C4526CB9ADA003AB8C4 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A6C4426CB9ADA003AB8C4 /* CustomTextField.swift */; };
+		C47A6C4726CBDE8F003AB8C4 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A6C4626CBDE8F003AB8C4 /* CustomButton.swift */; };
 		C4CCEADE26C52B2C0036818C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCEADD26C52B2C0036818C /* AppDelegate.swift */; };
 		C4CCEAE026C52B2C0036818C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCEADF26C52B2C0036818C /* SceneDelegate.swift */; };
 		C4CCEAE226C52B2C0036818C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCEAE126C52B2C0036818C /* ViewController.swift */; };
-		C4CCEAE526C52B2C0036818C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4CCEAE326C52B2C0036818C /* Main.storyboard */; };
-		C4CCEAE726C52B2F0036818C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4CCEAE626C52B2F0036818C /* Assets.xcassets */; };
 		C4CCEAEA26C52B2F0036818C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4CCEAE826C52B2F0036818C /* LaunchScreen.storyboard */; };
+		C4CCEAF326C52E370036818C /* IntroductionPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCEAF226C52E370036818C /* IntroductionPageController.swift */; };
+		C4CCEAF526C534740036818C /* IntrodactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCEAF426C534740036818C /* IntrodactionController.swift */; };
+		C4CCEAFD26C645990036818C /* Manrope-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4CCEAFC26C645980036818C /* Manrope-Bold.ttf */; };
+		C4CCEB0226C6A05F0036818C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCEB0126C6A05E0036818C /* LoginViewController.swift */; };
+		C4CCEB0626C6AF3C0036818C /* Klasik-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C4CCEAF826C641A10036818C /* Klasik-Regular.ttf */; };
+		C4CCEB0A26CA2CAB0036818C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4CCEAE626C52B2F0036818C /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C43176DE26CA36800053FEF3 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		C47A6C4126CB87EF003AB8C4 /* Manrope-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Medium.ttf"; sourceTree = "<group>"; };
+		C47A6C4426CB9ADA003AB8C4 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		C47A6C4626CBDE8F003AB8C4 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		C4CCEADA26C52B2C0036818C /* MonumentalHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonumentalHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CCEADD26C52B2C0036818C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4CCEADF26C52B2C0036818C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C4CCEAE126C52B2C0036818C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C4CCEAE426C52B2C0036818C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C4CCEAE626C52B2F0036818C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4CCEAE926C52B2F0036818C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C4CCEAEB26C52B2F0036818C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C4CCEAF226C52E370036818C /* IntroductionPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionPageController.swift; sourceTree = "<group>"; };
+		C4CCEAF426C534740036818C /* IntrodactionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntrodactionController.swift; sourceTree = "<group>"; };
+		C4CCEAF826C641A10036818C /* Klasik-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Klasik-Regular.ttf"; sourceTree = "<group>"; };
+		C4CCEAFC26C645980036818C /* Manrope-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Manrope-Bold.ttf"; path = "Manrope/static/Manrope-Bold.ttf"; sourceTree = "<group>"; };
+		C4CCEB0126C6A05E0036818C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C4CCEB0926CA2C730036818C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +54,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C43176DD26CA36700053FEF3 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C43176DE26CA36800053FEF3 /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		C47A6C4326CB9ABD003AB8C4 /* CustomizedClass */ = {
+			isa = PBXGroup;
+			children = (
+				C47A6C4426CB9ADA003AB8C4 /* CustomTextField.swift */,
+				C47A6C4626CBDE8F003AB8C4 /* CustomButton.swift */,
+			);
+			path = CustomizedClass;
+			sourceTree = "<group>";
+		};
 		C4CCEAD126C52B2C0036818C = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +90,46 @@
 		C4CCEADC26C52B2C0036818C /* MonumentalHabits */ = {
 			isa = PBXGroup;
 			children = (
+				C47A6C4326CB9ABD003AB8C4 /* CustomizedClass */,
+				C43176DD26CA36700053FEF3 /* Utils */,
+				C4CCEB0026C6A0440036818C /* LoginPage */,
+				C4CCEAF626C63F520036818C /* Fonts */,
+				C4CCEAF126C52E180036818C /* IntroductionPage */,
 				C4CCEADD26C52B2C0036818C /* AppDelegate.swift */,
 				C4CCEADF26C52B2C0036818C /* SceneDelegate.swift */,
 				C4CCEAE126C52B2C0036818C /* ViewController.swift */,
-				C4CCEAE326C52B2C0036818C /* Main.storyboard */,
 				C4CCEAE626C52B2F0036818C /* Assets.xcassets */,
 				C4CCEAE826C52B2F0036818C /* LaunchScreen.storyboard */,
 				C4CCEAEB26C52B2F0036818C /* Info.plist */,
 			);
 			path = MonumentalHabits;
+			sourceTree = "<group>";
+		};
+		C4CCEAF126C52E180036818C /* IntroductionPage */ = {
+			isa = PBXGroup;
+			children = (
+				C4CCEAF226C52E370036818C /* IntroductionPageController.swift */,
+				C4CCEAF426C534740036818C /* IntrodactionController.swift */,
+			);
+			path = IntroductionPage;
+			sourceTree = "<group>";
+		};
+		C4CCEAF626C63F520036818C /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C47A6C4126CB87EF003AB8C4 /* Manrope-Medium.ttf */,
+				C4CCEAFC26C645980036818C /* Manrope-Bold.ttf */,
+				C4CCEAF826C641A10036818C /* Klasik-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		C4CCEB0026C6A0440036818C /* LoginPage */ = {
+			isa = PBXGroup;
+			children = (
+				C4CCEB0126C6A05E0036818C /* LoginViewController.swift */,
+			);
+			path = LoginPage;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -124,9 +189,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4CCEB0A26CA2CAB0036818C /* Assets.xcassets in Resources */,
 				C4CCEAEA26C52B2F0036818C /* LaunchScreen.storyboard in Resources */,
-				C4CCEAE726C52B2F0036818C /* Assets.xcassets in Resources */,
-				C4CCEAE526C52B2C0036818C /* Main.storyboard in Resources */,
+				C4CCEB0626C6AF3C0036818C /* Klasik-Regular.ttf in Resources */,
+				C4CCEAFD26C645990036818C /* Manrope-Bold.ttf in Resources */,
+				C47A6C4226CB87EF003AB8C4 /* Manrope-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,27 +204,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C4CCEB0226C6A05F0036818C /* LoginViewController.swift in Sources */,
 				C4CCEAE226C52B2C0036818C /* ViewController.swift in Sources */,
+				C47A6C4726CBDE8F003AB8C4 /* CustomButton.swift in Sources */,
 				C4CCEADE26C52B2C0036818C /* AppDelegate.swift in Sources */,
+				C43176DF26CA36800053FEF3 /* Utils.swift in Sources */,
+				C47A6C4526CB9ADA003AB8C4 /* CustomTextField.swift in Sources */,
 				C4CCEAE026C52B2C0036818C /* SceneDelegate.swift in Sources */,
+				C4CCEAF326C52E370036818C /* IntroductionPageController.swift in Sources */,
+				C4CCEAF526C534740036818C /* IntrodactionController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C4CCEAE326C52B2C0036818C /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				C4CCEAE426C52B2C0036818C /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		C4CCEAE826C52B2F0036818C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C4CCEAE926C52B2F0036818C /* Base */,
+				C4CCEB0926CA2C730036818C /* en */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
