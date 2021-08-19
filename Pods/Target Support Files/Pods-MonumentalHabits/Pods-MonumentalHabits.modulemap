@@ -1,0 +1,6 @@
+framework module Pods_MonumentalHabits {
+  umbrella header "Pods-MonumentalHabits-umbrella.h"
+
+  export *
+  module * { export * }
+}

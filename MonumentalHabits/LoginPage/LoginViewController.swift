@@ -12,6 +12,25 @@ class LoginViewController : UIViewController {
 
     // MARK:- Properties
     
+    
+    var scrollView: UIScrollView = {
+         let v = UIScrollView()
+         v.translatesAutoresizingMaskIntoConstraints = false
+         v.backgroundColor = .white
+         v.isScrollEnabled = true
+         v.showsVerticalScrollIndicator = false
+         v.showsHorizontalScrollIndicator = false
+         v.isUserInteractionEnabled = true
+         return v
+     }()
+    
+     let contentView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+
+        return view
+    }()
+    
     let backgroundImage : UIImageView = {
         let image = UIImageView(image: UIImage(named: "splashScreen"))
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -115,7 +134,7 @@ class LoginViewController : UIViewController {
     }()
     
     let emailField : CustomTextField = {
-        let email = CustomTextField(icon: UIImage(named: Utils.unselectedEmailIcon)!, selectedIcon: UIImage(named: Utils.selectedEmailIcon)!, placeholder: "Email")
+        let email = CustomTextField(icon: UIImage(named: Utils.unselectedEmailIcon)!, selectedIcon: UIImage(named: Utils.selectedEmailIcon)!, placeholder: "Email",backColor: UIColor(named: Utils.milkColor)!,isSecure: false)
         email.translatesAutoresizingMaskIntoConstraints = false
         email.layer.cornerRadius = 12
         return email
@@ -123,7 +142,7 @@ class LoginViewController : UIViewController {
 
 
     let passwordField : CustomTextField = {
-        let password = CustomTextField(icon: UIImage(named: Utils.unselectedPasswordIcon)!, selectedIcon: UIImage(named: Utils.selectedPasswordIcon)!, placeholder: "Password")
+        let password = CustomTextField(icon: UIImage(named: Utils.unselectedPasswordIcon)!, selectedIcon: UIImage(named: Utils.selectedPasswordIcon)!, placeholder: "Password",backColor: UIColor(named: Utils.milkColor)!,isSecure: true)
         password.translatesAutoresizingMaskIntoConstraints = false
         password.layer.cornerRadius = 12
         return password
@@ -159,6 +178,16 @@ class LoginViewController : UIViewController {
         
         return label
     }()
+
+    let signUpLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "Don’t have an account? Sign up"
+        label.font = UIFont(name: "Manrope-Medium", size: 14)
+        label.textColor = UIColor(named: Utils.selectedIndicatorColor)
+        label.attributedText = label.text?.attributedStringWithFont(["Sign", "up"], font: UIFont(name: "Manrope-Bold", size: 14)!, color: UIColor(named: Utils.selectedIndicatorColor)!)
+        return label
+    }()
     
     
     //MARK:- LifeCycle
@@ -173,40 +202,104 @@ class LoginViewController : UIViewController {
     // MARK:- Setups
     
     func setupView(){
-        view.addSubview(backgroundImage)
-        view.addSubview(questionImage)
-        view.addSubview(gradientImage)
-        view.addSubview(titleLabel)
-        view.addSubview(googleButton)
+//        scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
+//        scrollView.contentSize = CGSize(width: view.bounds.width, height: 300)
+        contentView.addSubview(backgroundImage)
+        contentView.addSubview(questionImage)
+        contentView.addSubview(gradientImage)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(googleButton)
         continueWidthButtons.addArrangedSubview(googleButton)
         continueWidthButtons.addArrangedSubview(facebookButton)
-        view.addSubview(continueWidthButtons)
-        view.addSubview(uiBottomView)
-        view.addSubview(line)
-        view.addSubview(titleLogin)
+        contentView.addSubview(continueWidthButtons)
+        contentView.addSubview(uiBottomView)
+        contentView.addSubview(line)
+        contentView.addSubview(titleLogin)
         loginAndPasswordFieldStack.addArrangedSubview(emailField)
         loginAndPasswordFieldStack.addArrangedSubview(passwordField)
-        view.addSubview(loginAndPasswordFieldStack)
-        view.addSubview(loginButton)
-        view.addSubview(forgotPasswordLabel)
+        contentView.addSubview(loginAndPasswordFieldStack)
+        contentView.addSubview(loginButton)
+        contentView.addSubview(forgotPasswordLabel)
+        contentView.addSubview(signUpLabel)
+        view.addSubview(scrollView)
+        scrollView.addSubview(contentView)
+        
+        
+//        scrollView = UIScrollView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: view.bounds.height))
+//        scrollView.contentSize = CGSize(width: view.bounds.width, height: 3000)
+//        view.addSubview(scrollView)
+//        scrollView.addSubview(backgroundImage)
+//        scrollView.addSubview(questionImage)
+//        scrollView.addSubview(gradientImage)
+//        scrollView.addSubview(titleLabel)
+//        scrollView.addSubview(googleButton)
+//        continueWidthButtons.addArrangedSubview(googleButton)
+//        continueWidthButtons.addArrangedSubview(facebookButton)
+//        scrollView.addSubview(continueWidthButtons)
+//
+//        scrollView.addSubview(uiBottomView)
+//        scrollView.addSubview(line)
+//        scrollView.addSubview(titleLogin)
+//        loginAndPasswordFieldStack.addArrangedSubview(emailField)
+//        loginAndPasswordFieldStack.addArrangedSubview(passwordField)
+//        scrollView.addSubview(loginAndPasswordFieldStack)
+//        scrollView.addSubview(loginButton)
+//        scrollView.addSubview(forgotPasswordLabel)
+//        scrollView.addSubview(signUpLabel)
+        
+        
+//        view.addSubview(backgroundImage)
+//        view.addSubview(questionImage)
+//        view.addSubview(gradientImage)
+//        view.addSubview(titleLabel)
+//        view.addSubview(googleButton)
+        
+//        view.addSubview(continueWidthButtons)
+//        view.addSubview(uiBottomView)
+//        view.addSubview(line)
+//        view.addSubview(titleLogin)
+       
+//        view.addSubview(loginAndPasswordFieldStack)
+//        view.addSubview(loginButton)
+//        view.addSubview(forgotPasswordLabel)
+//        view.addSubview(signUpLabel)
     }
    
     func setupConstraints(){
-        let safeAreaGuide = view.safeAreaLayoutGuide
+        
+        let window = UIApplication.shared.windows[0]
+            let safeFrame = window.safeAreaLayoutGuide.layoutFrame
+            let topSafeAreaHeight = safeFrame.minY
+        
+      
+        print(topSafeAreaHeight)
+        
+//        let safeAreaGuide = view.safeAreaLayoutGuide
         NSLayoutConstraint.activate([
             
-            backgroundImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            backgroundImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+  
+            scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: -topSafeAreaHeight),
+            scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
+            scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
+            
+            contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+                    contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+                    contentView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+                    contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            
+            backgroundImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            backgroundImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            backgroundImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             backgroundImage.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.55),
         
-            questionImage.topAnchor.constraint(equalTo: safeAreaGuide.topAnchor, constant: 10),
-            questionImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10),
+            questionImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topSafeAreaHeight),
+            questionImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
 
-            gradientImage.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.85),
-            gradientImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 0),
-            gradientImage.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            gradientImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            gradientImage.heightAnchor.constraint(equalTo: contentView.heightAnchor, multiplier: 0.85),
+            gradientImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 0),
+            gradientImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            gradientImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             
             titleLabel.widthAnchor.constraint(equalTo: view.widthAnchor),
             titleLabel.centerXAnchor.constraint(equalTo: gradientImage.centerXAnchor),
@@ -216,22 +309,22 @@ class LoginViewController : UIViewController {
             googleButton.heightAnchor.constraint(equalToConstant: 50),
             
             continueWidthButtons.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 40),
-            continueWidthButtons.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            continueWidthButtons.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
+            continueWidthButtons.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
+            continueWidthButtons.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -30),
             
             uiBottomView.topAnchor.constraint(equalTo: continueWidthButtons.bottomAnchor, constant: 25),
-            uiBottomView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            uiBottomView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            uiBottomView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            uiBottomView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             uiBottomView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
             
             titleLogin.topAnchor.constraint(equalTo: uiBottomView.topAnchor, constant: 12),
-            titleLogin.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
-            titleLogin.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            titleLogin.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            titleLogin.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            titleLogin.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            titleLogin.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
             line.topAnchor.constraint(equalTo: uiBottomView.topAnchor, constant: 48),
-            line.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
-            line.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            line.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            line.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
             line.heightAnchor.constraint(equalToConstant: 1),
     
     
@@ -244,24 +337,52 @@ class LoginViewController : UIViewController {
             loginAndPasswordFieldStack.topAnchor.constraint(equalTo: line.bottomAnchor, constant: 16),
 
             loginAndPasswordFieldStack.leadingAnchor.constraint(equalTo:
-                view.leadingAnchor, constant: 20),
+                                                                    contentView.leadingAnchor, constant: 20),
 
-            loginAndPasswordFieldStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            loginAndPasswordFieldStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             
             loginButton.topAnchor.constraint(equalTo: loginAndPasswordFieldStack.bottomAnchor, constant: 20),
             
             loginButton.leadingAnchor.constraint(equalTo:
-                view.leadingAnchor, constant: 20),
+                                                    contentView.leadingAnchor, constant: 20),
 
-            loginButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            loginButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             
             forgotPasswordLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             forgotPasswordLabel.topAnchor.constraint(equalTo: loginButton.bottomAnchor, constant: 10),
+            signUpLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            signUpLabel.topAnchor.constraint(equalTo: forgotPasswordLabel.bottomAnchor, constant: 10),
+            signUpLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10)
         ])
     }
     
     // MARK:- Helpers
-    
-
 }
 
+
+extension String {
+    func attributedStringWithFont(_ strings: [String], font: UIFont,color: UIColor ,characterSpacing: UInt? = nil) -> NSAttributedString {
+        
+        
+        
+        let attributedString = NSMutableAttributedString(string: self)
+
+        for string in strings {
+            let range = (self as NSString).range(of: string)
+            let attributted:[NSAttributedString.Key: Any] = [
+                .font: font,
+                .foregroundColor: color
+            ]
+            attributedString.addAttributes(attributted, range: range)
+        }
+
+        guard let characterSpacing = characterSpacing else {return attributedString}
+
+        attributedString.addAttribute(NSAttributedString.Key.kern, value: characterSpacing, range: NSRange(location: 0, length: attributedString.length))
+
+        return attributedString
+//        let underlineAttributedString = NSAttributedString(string: string, attributes: attributtedString)
+//
+//        return underlineAttributedString
+    }
+}

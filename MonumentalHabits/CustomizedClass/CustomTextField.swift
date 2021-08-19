@@ -14,20 +14,24 @@ class CustomTextField : UIView , UITextFieldDelegate {
     var placeholder: String!
     var line : UIView!
     var textField : UITextField!
+    var showPasswordLabel : UILabel!
     var imageView: UIImageView!
+    var isSecure : Bool!
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
     }
     
-    init(icon: UIImage, selectedIcon: UIImage, placeholder: String) {
+    init(icon: UIImage, selectedIcon: UIImage, placeholder: String, backColor: UIColor, isSecure: Bool) {
+        self.isSecure = isSecure
         self.icon = icon
         self.selectedIcon = selectedIcon
         self.placeholder = placeholder
         super.init(frame: .zero)
         self.addCustomView()
         self.addConstraints()
-        self.backgroundColor = UIColor(named: Utils.milkColor)
+        self.backgroundColor = backColor
+       
     }
     
     required init?(coder: NSCoder) {
@@ -45,19 +49,13 @@ class CustomTextField : UIView , UITextFieldDelegate {
         line.translatesAutoresizingMaskIntoConstraints = false
         line.backgroundColor = UIColor(named: Utils.lineColor)
         self.addSubview(line)
-        
+       
         textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.delegate = self
+        textField.isSecureTextEntry = isSecure
         textField.textColor = UIColor(named: Utils.textColor)
         textField.font = UIFont(name: "Manrope-Bold", size: 16)
-//        textField.attributedPlaceholder = NSAttributedString(string: placeholder,
-//                                                             attributes: [NSAttributedString
-//                                                                            .Key.foregroundColor:
-//                                                                            UIColor(named: Utils.selectedIndicatorColor)!
-//
-//                                                                          .withAlphaComponent(0.5)
-//                                                                            ])
         
         let underlineAttribute:[NSAttributedString.Key: Any] = [
             .font: UIFont(name: "Manrope-Medium", size: 14)!,
@@ -70,6 +68,21 @@ class CustomTextField : UIView , UITextFieldDelegate {
         textField.attributedPlaceholder = underlineAttributedString
         
         self.addSubview(textField)
+        
+        if isSecure {
+         showPasswordLabel = UILabel()
+         showPasswordLabel.translatesAutoresizingMaskIntoConstraints = false
+         let underlineAttribute:[NSAttributedString.Key: Any] = [
+                .underlineStyle: 1,
+                .font: UIFont(name: "Manrope-Medium", size: 14)!,
+                .foregroundColor: UIColor(named: Utils.selectedIndicatorColor)!
+            ]
+            let underlineAttributedString = NSAttributedString(string: "Show", attributes: underlineAttribute)
+            showPasswordLabel.attributedText = underlineAttributedString
+            showPasswordLabel.isUserInteractionEnabled = true
+            showPasswordLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.isShowTapped)))
+            self.addSubview(showPasswordLabel)
+        }
         }
     
     func addConstraints() {
@@ -90,9 +103,13 @@ class CustomTextField : UIView , UITextFieldDelegate {
             textField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             textField.topAnchor.constraint(equalTo: topAnchor, constant: 0),
             textField.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
-            
-        
         ])
+        if showPasswordLabel != nil {
+        showPasswordLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+            showPasswordLabel.trailingAnchor.constraint(equalTo: textField.trailingAnchor, constant: -10).isActive = true
+            showPasswordLabel.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
+            showPasswordLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
+        }
     }
     
 
@@ -102,6 +119,11 @@ class CustomTextField : UIView , UITextFieldDelegate {
     
     func textFieldDidEndEditing(_ textField: UITextField) {
         imageView.image = icon
+    }
+    
+    @objc func isShowTapped(){
+        isSecure = !isSecure
+        textField.isSecureTextEntry = isSecure
     }
     
 }
