@@ -2,7 +2,7 @@
 //  IntrodactionController.swift
 //  MonumentalHabits
 //
-//  Created by Bob on 12.08.21.
+//  Created by Rafael Ahmedov on 12.08.21.
 //
 
 import UIKit
@@ -10,7 +10,6 @@ import UIKit
 class IntrodactionController : UIPageViewController {
     
     var pages = [UIViewController]()
-    
     let skipButton = UIButton()
        let nextButton = UIButton()
     let getStartedButton = UIButton()
@@ -201,6 +200,8 @@ extension IntrodactionController {
         defaults.set(true, forKey: Utils.userDefaultsKey)
         let viewController = LoginViewController()
         self.navigationController?.pushViewController(viewController, animated: true)
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        appDelegate.window?.rootViewController = viewController
     }
     
     @objc func nextTapped(_ sender: UIButton) {

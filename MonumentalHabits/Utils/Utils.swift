@@ -2,7 +2,7 @@
 //  Utils.swift
 //  MonumentalHabits
 //
-//  Created by Bob on 16.08.21.
+//  Created by Rafael Ahmedov on 16.08.21.
 //
 
 import UIKit
@@ -18,4 +18,11 @@ struct Utils {
     static let selectedPasswordIcon = "selected_password_icon"
     static let lineColor = "lineColor"
     static let textColor = "textColor"
+    static let signUpImage = "sign_up_image"
+    static let userIcon = "user_icon"
+    static let userIconUnselected = "user_icon_unselected"
+    static let checkBoxChecked = "checked_check_box"
+    static let checkBoxUnChecked = "unchecked_check_box"
+    static let titleLineColor = "titleLineColorGray"
+    static let titleTextColor = "titleTextColorGray"
 }

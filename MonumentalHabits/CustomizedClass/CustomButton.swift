@@ -2,7 +2,7 @@
 //  CustomButton.swift
 //  MonumentalHabits
 //
-//  Created by Bob on 17.08.21.
+//  Created by Rafael Ahmedov on 17.08.21.
 //
 
 import UIKit

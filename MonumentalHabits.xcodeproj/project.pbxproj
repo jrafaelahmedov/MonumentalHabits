@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,8 +12,11 @@
 		C47A6C4226CB87EF003AB8C4 /* Manrope-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C47A6C4126CB87EF003AB8C4 /* Manrope-Medium.ttf */; };
 		C47A6C4526CB9ADA003AB8C4 /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A6C4426CB9ADA003AB8C4 /* CustomTextField.swift */; };
 		C47A6C4726CBDE8F003AB8C4 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A6C4626CBDE8F003AB8C4 /* CustomButton.swift */; };
+		C47A6C4B26CE357E003AB8C4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C47A6C4A26CE357E003AB8C4 /* SignUpViewController.swift */; };
+		C489A4F726CFCB34008EE4D4 /* CustomCheckBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489A4F626CFCB34008EE4D4 /* CustomCheckBox.swift */; };
+		C489A4F926CFCBB4008EE4D4 /* CustomCheckBoxWithText.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489A4F826CFCBB4008EE4D4 /* CustomCheckBoxWithText.swift */; };
+		C489A4FB26CFDA90008EE4D4 /* CustomSignTitleWithLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489A4FA26CFDA90008EE4D4 /* CustomSignTitleWithLine.swift */; };
 		C4CCEADE26C52B2C0036818C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCEADD26C52B2C0036818C /* AppDelegate.swift */; };
-		C4CCEAE026C52B2C0036818C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCEADF26C52B2C0036818C /* SceneDelegate.swift */; };
 		C4CCEAE226C52B2C0036818C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCEAE126C52B2C0036818C /* ViewController.swift */; };
 		C4CCEAEA26C52B2F0036818C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4CCEAE826C52B2F0036818C /* LaunchScreen.storyboard */; };
 		C4CCEAF326C52E370036818C /* IntroductionPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCEAF226C52E370036818C /* IntroductionPageController.swift */; };
@@ -30,9 +33,12 @@
 		C47A6C4126CB87EF003AB8C4 /* Manrope-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Manrope-Medium.ttf"; sourceTree = "<group>"; };
 		C47A6C4426CB9ADA003AB8C4 /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		C47A6C4626CBDE8F003AB8C4 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		C47A6C4A26CE357E003AB8C4 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		C489A4F626CFCB34008EE4D4 /* CustomCheckBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckBox.swift; sourceTree = "<group>"; };
+		C489A4F826CFCBB4008EE4D4 /* CustomCheckBoxWithText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCheckBoxWithText.swift; sourceTree = "<group>"; };
+		C489A4FA26CFDA90008EE4D4 /* CustomSignTitleWithLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSignTitleWithLine.swift; sourceTree = "<group>"; };
 		C4CCEADA26C52B2C0036818C /* MonumentalHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonumentalHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CCEADD26C52B2C0036818C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C4CCEADF26C52B2C0036818C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		C4CCEAE126C52B2C0036818C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C4CCEAE626C52B2F0036818C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C4CCEAE926C52B2F0036818C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -73,7 +79,6 @@
 				DDEBFF0C4797FA7652E6C894 /* Pods-MonumentalHabits.debug.xcconfig */,
 				FEF5863E9E78D92F3E47C1D1 /* Pods-MonumentalHabits.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -90,6 +95,9 @@
 			children = (
 				C47A6C4426CB9ADA003AB8C4 /* CustomTextField.swift */,
 				C47A6C4626CBDE8F003AB8C4 /* CustomButton.swift */,
+				C489A4F626CFCB34008EE4D4 /* CustomCheckBox.swift */,
+				C489A4F826CFCBB4008EE4D4 /* CustomCheckBoxWithText.swift */,
+				C489A4FA26CFDA90008EE4D4 /* CustomSignTitleWithLine.swift */,
 			);
 			path = CustomizedClass;
 			sourceTree = "<group>";
@@ -121,7 +129,6 @@
 				C4CCEAF626C63F520036818C /* Fonts */,
 				C4CCEAF126C52E180036818C /* IntroductionPage */,
 				C4CCEADD26C52B2C0036818C /* AppDelegate.swift */,
-				C4CCEADF26C52B2C0036818C /* SceneDelegate.swift */,
 				C4CCEAE126C52B2C0036818C /* ViewController.swift */,
 				C4CCEAE626C52B2F0036818C /* Assets.xcassets */,
 				C4CCEAE826C52B2F0036818C /* LaunchScreen.storyboard */,
@@ -153,6 +160,7 @@
 			isa = PBXGroup;
 			children = (
 				C4CCEB0126C6A05E0036818C /* LoginViewController.swift */,
+				C47A6C4A26CE357E003AB8C4 /* SignUpViewController.swift */,
 			);
 			path = LoginPage;
 			sourceTree = "<group>";
@@ -274,12 +282,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				C4CCEB0226C6A05F0036818C /* LoginViewController.swift in Sources */,
+				C489A4F726CFCB34008EE4D4 /* CustomCheckBox.swift in Sources */,
 				C4CCEAE226C52B2C0036818C /* ViewController.swift in Sources */,
 				C47A6C4726CBDE8F003AB8C4 /* CustomButton.swift in Sources */,
 				C4CCEADE26C52B2C0036818C /* AppDelegate.swift in Sources */,
+				C47A6C4B26CE357E003AB8C4 /* SignUpViewController.swift in Sources */,
+				C489A4FB26CFDA90008EE4D4 /* CustomSignTitleWithLine.swift in Sources */,
+				C489A4F926CFCBB4008EE4D4 /* CustomCheckBoxWithText.swift in Sources */,
 				C43176DF26CA36800053FEF3 /* Utils.swift in Sources */,
 				C47A6C4526CB9ADA003AB8C4 /* CustomTextField.swift in Sources */,
-				C4CCEAE026C52B2C0036818C /* SceneDelegate.swift in Sources */,
 				C4CCEAF326C52E370036818C /* IntroductionPageController.swift in Sources */,
 				C4CCEAF526C534740036818C /* IntrodactionController.swift in Sources */,
 			);
@@ -351,7 +362,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -406,7 +417,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.3;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -423,6 +434,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3V7CT69S3K;
 				INFOPLIST_FILE = MonumentalHabits/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -442,6 +454,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3V7CT69S3K;
 				INFOPLIST_FILE = MonumentalHabits/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

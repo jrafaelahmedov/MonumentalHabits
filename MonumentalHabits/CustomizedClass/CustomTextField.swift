@@ -2,7 +2,7 @@
 //  CustomTextField.swift
 //  MonumentalHabits
 //
-//  Created by Bob on 17.08.21.
+//  Created by Rafael Ahmedov on 17.08.21.
 //
 
 import UIKit
@@ -31,7 +31,6 @@ class CustomTextField : UIView , UITextFieldDelegate {
         self.addCustomView()
         self.addConstraints()
         self.backgroundColor = backColor
-       
     }
     
     required init?(coder: NSCoder) {
@@ -56,18 +55,15 @@ class CustomTextField : UIView , UITextFieldDelegate {
         textField.isSecureTextEntry = isSecure
         textField.textColor = UIColor(named: Utils.textColor)
         textField.font = UIFont(name: "Manrope-Bold", size: 16)
-        
         let underlineAttribute:[NSAttributedString.Key: Any] = [
             .font: UIFont(name: "Manrope-Medium", size: 14)!,
             .foregroundColor: UIColor(named: Utils.selectedIndicatorColor)!
             .withAlphaComponent(0.5)
         ]
-        
         let underlineAttributedString = NSAttributedString(string: placeholder, attributes: underlineAttribute)
-        
         textField.attributedPlaceholder = underlineAttributedString
-        
         self.addSubview(textField)
+        
         
         if isSecure {
          showPasswordLabel = UILabel()
@@ -82,12 +78,11 @@ class CustomTextField : UIView , UITextFieldDelegate {
             showPasswordLabel.isUserInteractionEnabled = true
             showPasswordLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.isShowTapped)))
             self.addSubview(showPasswordLabel)
-        }
+          }
         }
     
     func addConstraints() {
         NSLayoutConstraint.activate([
-            
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 17),
             imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             imageView.heightAnchor.constraint(equalToConstant: 16),
@@ -105,14 +100,13 @@ class CustomTextField : UIView , UITextFieldDelegate {
             textField.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
         ])
         if showPasswordLabel != nil {
-        showPasswordLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+            showPasswordLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
             showPasswordLabel.trailingAnchor.constraint(equalTo: textField.trailingAnchor, constant: -10).isActive = true
             showPasswordLabel.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
             showPasswordLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
         }
     }
     
-
     func textFieldDidBeginEditing(_ textField: UITextField) {
         imageView.image = selectedIcon
     }
@@ -124,8 +118,23 @@ class CustomTextField : UIView , UITextFieldDelegate {
     @objc func isShowTapped(){
         isSecure = !isSecure
         textField.isSecureTextEntry = isSecure
-    }
-    
+        if isSecure {
+            let underlineAttribute:[NSAttributedString.Key: Any] = [
+                   .underlineStyle: 1,
+                   .font: UIFont(name: "Manrope-Medium", size: 14)!,
+                   .foregroundColor: UIColor(named: Utils.selectedIndicatorColor)!
+               ]
+               let underlineAttributedString = NSAttributedString(string: "Show", attributes: underlineAttribute)
+            showPasswordLabel.attributedText = underlineAttributedString
+        }else{
+        let underlineAttribute:[NSAttributedString.Key: Any] = [
+               .underlineStyle: 1,
+               .font: UIFont(name: "Manrope-Medium", size: 14)!,
+               .foregroundColor: UIColor(named: Utils.selectedIndicatorColor)!
+           ]
+           let underlineAttributedString = NSAttributedString(string: "Hide", attributes: underlineAttribute)
+            showPasswordLabel.attributedText = underlineAttributedString
+        }}
 }
 
 

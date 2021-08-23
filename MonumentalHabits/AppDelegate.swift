@@ -2,38 +2,47 @@
 //  AppDelegate.swift
 //  MonumentalHabits
 //
-//  Created by Bob on 12.08.21.
+//  Created by Rafael Ahmedov on 12.08.21.
 //
 
 import UIKit
-
 import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
+    var window: UIWindow?
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
+        let window = UIWindow(frame: UIScreen.main.bounds)
+        window.makeKeyAndVisible()
+        let defaults = UserDefaults.standard
+        let introShowed = defaults.bool(forKey: Utils.userDefaultsKey)
+        
+        var viewController: UIViewController?
+        if introShowed {
+            viewController = LoginViewController()
+        } else {
+            viewController = IntrodactionController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
+        }
+        let navigationController = UINavigationController(rootViewController: viewController!)
+        navigationController.navigationBar.isHidden = true
+        window.rootViewController = navigationController
+        self.window = window
         return true
     }
-
-    // MARK: UISceneSession Lifecycle
-
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
-        // Called when a new scene session is being created.
-        // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+    
+    static func getAppDelegate() -> AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
     }
-
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
-        // Called when the user discards a scene session.
-        // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
-        // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
-    }
-
-
 }
-
+extension UIViewController {
+func setAsRoot(from viewController: UIViewController = UIViewController()) {
+    if let window = AppDelegate.getAppDelegate().window {
+        window.makeKeyAndVisible()
+        window.rootViewController = UINavigationController(rootViewController: self)
+    }
+  }
+}
