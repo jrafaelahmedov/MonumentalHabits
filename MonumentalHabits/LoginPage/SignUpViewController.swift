@@ -148,7 +148,7 @@ class SignUpViewController : UIViewController {
         let stackView = UIStackView()
         stackView.axis = .horizontal
         stackView.alignment = .fill
-        stackView.distribution = .fill
+        stackView.distribution = .fillEqually
         stackView.translatesAutoresizingMaskIntoConstraints = false
         stackView.spacing = 20.0
         return stackView
@@ -219,69 +219,46 @@ class SignUpViewController : UIViewController {
             signUpImage.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             signUpImage.heightAnchor.constraint(equalToConstant: 200),
             signUpImage.widthAnchor.constraint(equalToConstant: 186),
+            
             titleLabel.topAnchor.constraint(equalTo: signUpImage.bottomAnchor,constant: 21),
             titleLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor),
             titleLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            
-            
-            
-            emailField.heightAnchor.constraint(equalToConstant: 56),
 
+            emailField.heightAnchor.constraint(equalToConstant: 56),
             passwordField.heightAnchor.constraint(equalToConstant: 56),
-            
             nameField.heightAnchor.constraint(equalToConstant: 56),
-            
+
             loginAndPasswordFieldStack.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 32),
             loginAndPasswordFieldStack.leadingAnchor.constraint(equalTo:
                                                                     contentView.leadingAnchor, constant: 20),
             loginAndPasswordFieldStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            
+
             checkBoxKeepSignedIn.heightAnchor.constraint(equalToConstant: 25),
             checkBoxNotifyMe.heightAnchor.constraint(equalToConstant: 25),
-            
+
             checkBoxStack.topAnchor.constraint(equalTo: loginAndPasswordFieldStack.bottomAnchor, constant: 30),
-            
             checkBoxStack.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
-            
             checkBoxStack.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            
+
             signUpButton.topAnchor.constraint(equalTo: checkBoxStack.bottomAnchor, constant: 20),
-            
             signUpButton.leadingAnchor.constraint(equalTo:
                                                     contentView.leadingAnchor, constant: 20),
-
             signUpButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            
+
             customSignUpLabel.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: 25),
             customSignUpLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             customSignUpLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+
+            continueWidthButtons.topAnchor.constraint(equalTo: customSignUpLabel.bottomAnchor, constant: 40),
+            continueWidthButtons.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
+            continueWidthButtons.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
             
             facebookButton.heightAnchor.constraint(equalToConstant: 50),
             googleButton.heightAnchor.constraint(equalToConstant: 50),
-            
-            facebookButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.43),
-            
-            googleButton.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.43),
-            
-            continueWidthButtons.topAnchor.constraint(equalTo: customSignUpLabel.bottomAnchor, constant: 40),
-            
-            continueWidthButtons.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            
-            continueWidthButtons.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            
-            signInLabel.topAnchor.constraint(equalTo: continueWidthButtons.bottomAnchor, constant: 30),
-            
-            signInLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
-            signInLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            
-            signInLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            
-           
-//            checkBoxStack.widthAnchor.constraint(equalTo: contentView.widthAnchor),
-//            checkBoxStack.heightAnchor.constraint(equalToConstant: 80),
-            signInLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -10)
-//            loginAndPasswordFieldStack.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 150),
 
+            signInLabel.topAnchor.constraint(equalTo: continueWidthButtons.bottomAnchor, constant: 30),
+            signInLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            signInLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,constant: -10)
         ])
     }
     

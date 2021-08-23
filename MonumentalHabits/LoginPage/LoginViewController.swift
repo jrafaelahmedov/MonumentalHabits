@@ -14,7 +14,7 @@ class LoginViewController : UIViewController {
     var scrollView: UIScrollView = {
          let v = UIScrollView()
          v.translatesAutoresizingMaskIntoConstraints = false
-         v.backgroundColor = .white
+         v.bounces = v.contentOffset.y > 100
          v.isScrollEnabled = true
          v.showsVerticalScrollIndicator = false
          v.showsHorizontalScrollIndicator = false
@@ -29,7 +29,7 @@ class LoginViewController : UIViewController {
     }()
     
     let backgroundImage : UIImageView = {
-        let image = UIImageView(image: UIImage(named: "splashScreen"))
+        let image = UIImageView(image: UIImage(named: Utils.splash_screen)!)
         image.translatesAutoresizingMaskIntoConstraints = false
         image.contentMode = .scaleAspectFill
         image.clipsToBounds = true
@@ -76,6 +76,7 @@ class LoginViewController : UIViewController {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(#imageLiteral(resourceName: "google_icon"), for: .normal)
         button.imageEdgeInsets = UIEdgeInsets(top: 0, left: -50, bottom: 0, right: 0)
+        
         button.titleEdgeInsets = UIEdgeInsets(top: 0, left: -30, bottom: 0, right: 0)
         button.setTitle("Continue with  Google", for: .normal)
         button.setTitleColor(UIColor(named: Utils.selectedIndicatorColor), for: .normal)
@@ -214,6 +215,8 @@ class LoginViewController : UIViewController {
         
         signUpLabel.isUserInteractionEnabled = true
         signUpLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(getSignUp)))
+        forgotPasswordLabel.isUserInteractionEnabled = true
+        forgotPasswordLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(getForgotPass)))
     }
    
     func setupConstraints(){
@@ -225,6 +228,7 @@ class LoginViewController : UIViewController {
             scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
             scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             scrollView.widthAnchor.constraint(equalTo: view.widthAnchor),
+          
             
             contentView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             contentView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
@@ -236,6 +240,8 @@ class LoginViewController : UIViewController {
             backgroundImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
             backgroundImage.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.55),
         
+            questionImage.heightAnchor.constraint(equalToConstant: 44),
+            questionImage.widthAnchor.constraint(equalToConstant: 44),
             questionImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: topSafeAreaHeight),
             questionImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -10),
 
@@ -249,7 +255,9 @@ class LoginViewController : UIViewController {
             titleLabel.centerYAnchor.constraint(equalTo: gradientImage.centerYAnchor,constant: -40),
             
             facebookButton.heightAnchor.constraint(equalToConstant: 50),
+            
             googleButton.heightAnchor.constraint(equalToConstant: 50),
+            
             
             continueWidthButtons.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 40),
             continueWidthButtons.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 30),
@@ -301,13 +309,18 @@ class LoginViewController : UIViewController {
     
     
     @objc func getSignUp() {
-        print("sign up called")
         let viewController = SignUpViewController()
         self.navigationController?.pushViewController(viewController, animated: true)
         
     }
+    
+    @objc func getForgotPass() {
+        let viewController = ForgotPasswordViewController()
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
     @objc func backAction(){
-        
+        print("Back pressed")
     }
 }
 

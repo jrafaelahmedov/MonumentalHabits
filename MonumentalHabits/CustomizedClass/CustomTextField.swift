@@ -9,8 +9,8 @@ import UIKit
 
 class CustomTextField : UIView , UITextFieldDelegate {
     
-    var icon : UIImage!
-    var selectedIcon: UIImage!
+    var icon : UIImage?
+    var selectedIcon: UIImage?
     var placeholder: String!
     var line : UIView!
     var textField : UITextField!
@@ -22,7 +22,7 @@ class CustomTextField : UIView , UITextFieldDelegate {
         super.init(frame: .zero)
     }
     
-    init(icon: UIImage, selectedIcon: UIImage, placeholder: String, backColor: UIColor, isSecure: Bool) {
+    init(icon: UIImage?, selectedIcon: UIImage?, placeholder: String, backColor: UIColor, isSecure: Bool) {
         self.isSecure = isSecure
         self.icon = icon
         self.selectedIcon = selectedIcon
@@ -38,16 +38,18 @@ class CustomTextField : UIView , UITextFieldDelegate {
     }
     
     func addCustomView() {
+        if icon != nil {
         imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.image = icon
         imageView.contentMode = .scaleAspectFit
         self.addSubview(imageView)
-        
+            
         line = UIView()
         line.translatesAutoresizingMaskIntoConstraints = false
         line.backgroundColor = UIColor(named: Utils.lineColor)
         self.addSubview(line)
+        }
        
         textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -82,23 +84,30 @@ class CustomTextField : UIView , UITextFieldDelegate {
         }
     
     func addConstraints() {
-        NSLayoutConstraint.activate([
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 17),
-            imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-            imageView.heightAnchor.constraint(equalToConstant: 16),
-            imageView.widthAnchor.constraint(equalToConstant: 15),
+        if imageView != nil {
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 17).isActive = true
+            imageView.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+            imageView.heightAnchor.constraint(equalToConstant: 16).isActive = true
+            imageView.widthAnchor.constraint(equalToConstant: 15).isActive = true
             
-            line.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 17),
-            line.topAnchor.constraint(equalTo: topAnchor, constant: 0),
-            line.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
-            line.heightAnchor.constraint(equalTo: heightAnchor),
-            line.widthAnchor.constraint(equalToConstant: 1),
+            line.trailingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 17).isActive = true
+            line.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
+            line.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
+            line.heightAnchor.constraint(equalTo: heightAnchor).isActive = true
+            line.widthAnchor.constraint(equalToConstant: 1).isActive = true
             
-            textField.leadingAnchor.constraint(equalTo: line.trailingAnchor, constant: 16),
-            textField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
-            textField.topAnchor.constraint(equalTo: topAnchor, constant: 0),
-            textField.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
-        ])
+            
+            textField.leadingAnchor.constraint(equalTo: line.trailingAnchor, constant: 16).isActive = true
+            textField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
+            textField.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
+            textField.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
+        }else {
+            textField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
+            textField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16).isActive = true
+            textField.topAnchor.constraint(equalTo: topAnchor, constant: 0).isActive = true
+            textField.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0).isActive = true
+        }
+        
         if showPasswordLabel != nil {
             showPasswordLabel.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
             showPasswordLabel.trailingAnchor.constraint(equalTo: textField.trailingAnchor, constant: -10).isActive = true
@@ -108,11 +117,15 @@ class CustomTextField : UIView , UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
+        if selectedIcon != nil {
         imageView.image = selectedIcon
+        }
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
+        if icon != nil {
         imageView.image = icon
+        }
     }
     
     @objc func isShowTapped(){

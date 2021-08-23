@@ -25,4 +25,7 @@ struct Utils {
     static let checkBoxUnChecked = "unchecked_check_box"
     static let titleLineColor = "titleLineColorGray"
     static let titleTextColor = "titleTextColorGray"
+    static let back_button = "back_button"
+    static let forgot_image = "forgot_image"
+    static let splash_screen = "splashScreen"
 }
