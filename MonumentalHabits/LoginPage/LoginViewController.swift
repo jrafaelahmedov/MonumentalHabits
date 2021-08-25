@@ -217,6 +217,9 @@ class LoginViewController : UIViewController {
         signUpLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(getSignUp)))
         forgotPasswordLabel.isUserInteractionEnabled = true
         forgotPasswordLabel.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(getForgotPass)))
+        
+        loginButton.isUserInteractionEnabled = true
+        loginButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(getHomePage)))
     }
    
     func setupConstraints(){
@@ -311,11 +314,20 @@ class LoginViewController : UIViewController {
     @objc func getSignUp() {
         let viewController = SignUpViewController()
         self.navigationController?.pushViewController(viewController, animated: true)
-        
     }
     
     @objc func getForgotPass() {
         let viewController = ForgotPasswordViewController()
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    @objc func getHomePage(){
+//        let navigationController = UINavigationController(rootViewController: MainViewController())
+//           let window = UIApplication.shared.windows[0]
+//           window.rootViewController = navigationController
+//           window.makeKeyAndVisible()
+        
+        let viewController = MainViewController()
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
