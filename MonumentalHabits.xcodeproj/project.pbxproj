@@ -23,6 +23,9 @@
 		C489A51226D4EDAB008EE4D4 /* TabBarCustomizator.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489A51126D4EDAB008EE4D4 /* TabBarCustomizator.swift */; };
 		C489A51626D4FEB8008EE4D4 /* MyTabBarCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489A51526D4FEB8008EE4D4 /* MyTabBarCtrl.swift */; };
 		C489A51C26D66540008EE4D4 /* CustomWeekDayHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489A51B26D66540008EE4D4 /* CustomWeekDayHomePage.swift */; };
+		C489A51F26D67B2C008EE4D4 /* WeekCellHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489A51E26D67B2C008EE4D4 /* WeekCellHomePage.swift */; };
+		C489A52126D77844008EE4D4 /* CustomHabitCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489A52026D77844008EE4D4 /* CustomHabitCollectionView.swift */; };
+		C489A52326D79AFF008EE4D4 /* ColorCellPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489A52226D79AFF008EE4D4 /* ColorCellPage.swift */; };
 		C4CCEADE26C52B2C0036818C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCEADD26C52B2C0036818C /* AppDelegate.swift */; };
 		C4CCEAE226C52B2C0036818C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCEAE126C52B2C0036818C /* ViewController.swift */; };
 		C4CCEAEA26C52B2F0036818C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4CCEAE826C52B2F0036818C /* LaunchScreen.storyboard */; };
@@ -49,6 +52,9 @@
 		C489A51126D4EDAB008EE4D4 /* TabBarCustomizator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarCustomizator.swift; sourceTree = "<group>"; };
 		C489A51526D4FEB8008EE4D4 /* MyTabBarCtrl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTabBarCtrl.swift; sourceTree = "<group>"; };
 		C489A51B26D66540008EE4D4 /* CustomWeekDayHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomWeekDayHomePage.swift; sourceTree = "<group>"; };
+		C489A51E26D67B2C008EE4D4 /* WeekCellHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCellHomePage.swift; sourceTree = "<group>"; };
+		C489A52026D77844008EE4D4 /* CustomHabitCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHabitCollectionView.swift; sourceTree = "<group>"; };
+		C489A52226D79AFF008EE4D4 /* ColorCellPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCellPage.swift; sourceTree = "<group>"; };
 		C4CCEADA26C52B2C0036818C /* MonumentalHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonumentalHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CCEADD26C52B2C0036818C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4CCEAE126C52B2C0036818C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +117,7 @@
 				C489A4F826CFCBB4008EE4D4 /* CustomCheckBoxWithText.swift */,
 				C489A4FA26CFDA90008EE4D4 /* CustomSignTitleWithLine.swift */,
 				C489A51B26D66540008EE4D4 /* CustomWeekDayHomePage.swift */,
+				C489A52026D77844008EE4D4 /* CustomHabitCollectionView.swift */,
 			);
 			path = CustomizedClass;
 			sourceTree = "<group>";
@@ -131,6 +138,15 @@
 				C489A51526D4FEB8008EE4D4 /* MyTabBarCtrl.swift */,
 			);
 			path = TabBar;
+			sourceTree = "<group>";
+		};
+		C489A51D26D67B15008EE4D4 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C489A51E26D67B2C008EE4D4 /* WeekCellHomePage.swift */,
+				C489A52226D79AFF008EE4D4 /* ColorCellPage.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		C4CCEAD126C52B2C0036818C = {
@@ -154,6 +170,7 @@
 		C4CCEADC26C52B2C0036818C /* MonumentalHabits */ = {
 			isa = PBXGroup;
 			children = (
+				C489A51D26D67B15008EE4D4 /* Cells */,
 				C489A50E26D4ECB5008EE4D4 /* TabBar */,
 				C489A4FF26D3CC4D008EE4D4 /* HomePage */,
 				C47A6C4326CB9ABD003AB8C4 /* CustomizedClass */,
@@ -317,6 +334,7 @@
 			files = (
 				C4CCEB0226C6A05F0036818C /* LoginViewController.swift in Sources */,
 				C489A4F726CFCB34008EE4D4 /* CustomCheckBox.swift in Sources */,
+				C489A52126D77844008EE4D4 /* CustomHabitCollectionView.swift in Sources */,
 				C4CCEAE226C52B2C0036818C /* ViewController.swift in Sources */,
 				C489A51226D4EDAB008EE4D4 /* TabBarCustomizator.swift in Sources */,
 				C47A6C4726CBDE8F003AB8C4 /* CustomButton.swift in Sources */,
@@ -328,7 +346,9 @@
 				C489A4F926CFCBB4008EE4D4 /* CustomCheckBoxWithText.swift in Sources */,
 				C489A51026D4ECD4008EE4D4 /* MainViewController.swift in Sources */,
 				C43176DF26CA36800053FEF3 /* Utils.swift in Sources */,
+				C489A52326D79AFF008EE4D4 /* ColorCellPage.swift in Sources */,
 				C47A6C4526CB9ADA003AB8C4 /* CustomTextField.swift in Sources */,
+				C489A51F26D67B2C008EE4D4 /* WeekCellHomePage.swift in Sources */,
 				C489A4FD26D369F8008EE4D4 /* ForgotPasswordViewController.swift in Sources */,
 				C489A51C26D66540008EE4D4 /* CustomWeekDayHomePage.swift in Sources */,
 				C4CCEAF326C52E370036818C /* IntroductionPageController.swift in Sources */,

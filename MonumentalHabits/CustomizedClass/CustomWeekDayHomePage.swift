@@ -37,32 +37,32 @@ class CustomWeekDayHomePage : UIView {
          dayLabel = UILabel()
          dayLabel.translatesAutoresizingMaskIntoConstraints = false
          let underlineAttribute:[NSAttributedString.Key: Any] = [
-                .underlineStyle: 1,
-                .font: UIFont(name: "Manrope-Bold", size: 10)!,
+                .font: UIFont(name: "Manrope-Bold", size: 16)!,
                 .foregroundColor: UIColor(named: Utils.selectedIndicatorColor)!
             ]
             let underlineAttributedString = NSAttributedString(string: day, attributes: underlineAttribute)
         dayLabel.attributedText = underlineAttributedString
-        dayLabel.alpha = 0.5
+       
+        dayLabel.textAlignment = .center
         self.addSubview(dayLabel)
         
         weekDayLabel = UILabel()
         weekDayLabel.translatesAutoresizingMaskIntoConstraints = false
         let underlineAttribute1:[NSAttributedString.Key: Any] = [
-               .underlineStyle: 1,
-               .font: UIFont(name: "Manrope-Bold", size: 16)!,
+               .font: UIFont(name: "Manrope-Bold", size: 10)!,
                .foregroundColor: UIColor(named: Utils.selectedIndicatorColor)!
            ]
            let underlineAttributedString1 = NSAttributedString(string: week, attributes: underlineAttribute1)
         weekDayLabel.attributedText = underlineAttributedString1
-        weekDayLabel.text = weekDayLabel.text?.uppercased()
+        weekDayLabel.textAlignment = .center
+        weekDayLabel.alpha = 0.5
         self.addSubview(weekDayLabel)
         }
     
     func addConstraints() {
-        dayLabel.topAnchor.constraint(equalTo: topAnchor, constant: 12).isActive = true
-        dayLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-        weekDayLabel.topAnchor.constraint(equalTo: dayLabel.bottomAnchor, constant: 0).isActive = true
+        weekDayLabel.topAnchor.constraint(equalTo: topAnchor, constant: -15).isActive = true
         weekDayLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        dayLabel.topAnchor.constraint(equalTo: weekDayLabel.bottomAnchor, constant: -3).isActive = true
+        dayLabel.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
     }
 }

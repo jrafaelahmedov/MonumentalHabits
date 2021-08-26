@@ -40,4 +40,5 @@ struct Utils {
     static let second_tab_unselected = "second_unselected"
     static let third_unselected = "third_unselected"
     static let fourd_unselected = "fourd_unselected"
+    static let home_page_background = "home_page_background"
 }
