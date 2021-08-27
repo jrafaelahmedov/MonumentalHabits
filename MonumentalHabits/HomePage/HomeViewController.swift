@@ -8,8 +8,6 @@
 import UIKit
 
 class HomeViewController : UITabBarController {
-
-    
       
     
     // MARK:- Properties
@@ -40,6 +38,8 @@ class HomeViewController : UITabBarController {
         image.clipsToBounds = true
         return image
     }()
+    
+    
     let hamburgerImage: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -75,18 +75,11 @@ class HomeViewController : UITabBarController {
     let homeImage : UIImageView = {
         let image = UIImageView(image: UIImage(named: Utils.home_view_image)!)
         image.translatesAutoresizingMaskIntoConstraints = false
-        image.contentMode = .scaleAspectFill
+        image.contentMode = .scaleAspectFit
         image.layer.masksToBounds = false
         image.clipsToBounds = true
         return image
     }()
-
-    weak var collectionView: UICollectionView!
-
-    
-    var weekDays : [CustomWeekDayHomePage] = []
-    var days: [String] = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
-    
     
     let habitLabel : UILabel = {
         let label = UILabel()
@@ -109,47 +102,31 @@ class HomeViewController : UITabBarController {
     }()
     
     
+    var tableView: UITableView? = nil
+    var habitNames : [String] = []
+    var colors : [ColorCellPage] = []
+    var collectionView: UICollectionView!
+    var weekDays : [CustomWeekDayHomePage] = []
+    var days: [String] = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
+    var hobitNames : [String] = []
+    
+    
     //MARK:- LifeCycle
     
     
     override func loadView() {
         super.loadView()
-        
-      
-            let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-          
-            layout.scrollDirection = .horizontal
-            
-        
-        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-                collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
-                self.view.addSubview(collectionView)
-                NSLayoutConstraint.activate([
-                    self.view.topAnchor.constraint(equalTo: collectionView.topAnchor),
-                    self.view.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor),
-                    self.view.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor),
-                    self.view.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
-                ])
-                self.collectionView = collectionView
+        tableRow()
+        setupTable()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Back", style: .done, target: self, action: #selector(backAction))
-        
-        
-        self.collectionView.dataSource = self
-                self.collectionView.delegate = self
-                self.collectionView.register(WeekCellHomePage.self, forCellWithReuseIdentifier: WeekCellHomePage.identifier)
-                self.collectionView.alwaysBounceVertical = true
-        self.collectionView.isPagingEnabled = true
-        self.collectionView.showsHorizontalScrollIndicator = false
-        self.collectionView.clipsToBounds = true
-        self.collectionView.bounces =  self.collectionView.contentOffset.y > 100
-                self.collectionView.backgroundColor = .clear
-//        self.collectionView.layout
+        setupCollectionView()
+        addHabits()
         generateLabels()
+        hobitNamesFunc()
         setupView()
         setupConstraints()
     }
@@ -159,15 +136,15 @@ class HomeViewController : UITabBarController {
     
     func setupView(){
         contentView.addSubview(backgroundImage)
-       contentView.addSubview(hamburgerImage)
-       contentView.addSubview(homeLabel)
-       contentView.addSubview(profileImage)
-       contentView.addSubview(homeImage)
-       contentView.addSubview(collectionView)
-       contentView.addSubview(habitLabel)
+        contentView.addSubview(hamburgerImage)
+        contentView.addSubview(homeLabel)
+        contentView.addSubview(profileImage)
+        contentView.addSubview(homeImage)
+        contentView.addSubview(habitLabel)
+        contentView.addSubview(collectionView)
         
+        contentView.addSubview(tableView!)
         
-        contentView.addSubview(customHabit)
         
         
        view.addSubview(scrollView)
@@ -192,63 +169,79 @@ class HomeViewController : UITabBarController {
 
             backgroundImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 100),
             backgroundImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
-            backgroundImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            backgroundImage.heightAnchor.constraint(equalTo: view.heightAnchor,multiplier: 0.7),
+            backgroundImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            backgroundImage.heightAnchor.constraint(equalTo: view.heightAnchor,multiplier: 1),
             backgroundImage.widthAnchor.constraint(equalTo: view.widthAnchor,multiplier: 1),
-            
-            backgroundImage.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0),
-            
+
+            backgroundImage.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: 50),
+//
             hamburgerImage.heightAnchor.constraint(equalToConstant: 50),
             hamburgerImage.widthAnchor.constraint(equalToConstant: 50),
             hamburgerImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20+topSafeAreaHeight),
             hamburgerImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,constant: 15),
-            
+//
             homeLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20 + topSafeAreaHeight),
             homeLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
-            
+
             homeLabel.centerYAnchor.constraint(equalTo: hamburgerImage.centerYAnchor),
-            
-            
+
+//
             profileImage.heightAnchor.constraint(equalToConstant: 44),
             profileImage.widthAnchor.constraint(equalToConstant: 44),
 
             profileImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20+topSafeAreaHeight),
             profileImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
-            
+//
             homeImage.topAnchor.constraint(equalTo: homeLabel.bottomAnchor, constant: 30),
-            
+
             homeImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 18),
             homeImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -18),
             homeImage.heightAnchor.constraint(equalToConstant: 145),
-            
+
             habitLabel.topAnchor.constraint(equalTo: homeImage.bottomAnchor, constant: 28),
-            
+
             habitLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 38),
-            
+
             habitLabel.centerYAnchor.constraint(equalTo: collectionView.centerYAnchor),
-            
+
             collectionView.topAnchor.constraint(equalTo: homeImage.bottomAnchor, constant: 19),
             collectionView.heightAnchor.constraint(equalToConstant: 50),
-//            collectionView.widthAnchor.constraint(equalTo: contentView.widthAnchor),
-//            collectionView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+
 //            collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             collectionView.leadingAnchor.constraint(equalTo: habitLabel.trailingAnchor, constant: 69),
             collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+
             
-            customHabit.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 11),
-            customHabit.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 18),
-            customHabit.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
-            customHabit.heightAnchor.constraint(equalToConstant: 70),
-            customHabit.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            tableView!.topAnchor.constraint(equalTo: collectionView.bottomAnchor, constant: 11),
+            tableView!.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 18),
+            tableView!.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+//            tableView!.heightAnchor.constraint(equalToConstant: 300),
+            tableView!.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             
         ])
     }
     
     //MARK:- Utils
     
-    @objc func backAction(){
-        print("Back pressed")
-    }
+    @objc func backAction(){}
+    
+    
+        func addHabits() {
+            let habit = Utils.lineColor
+            habitNames.append(habit)
+            let habit1 = Utils.milkColor
+            habitNames.append(habit1)
+            let habit2 = Utils.textColor
+            habitNames.append(habit2)
+            let habit3 = Utils.orangeColor
+            habitNames.append(habit3)
+//            let habit4 = Utils.titleTextColor
+//            habitNames.append(habit4)
+//            let habit5 = Utils.titleLineColor
+//            habitNames.append(habit5)
+//            let habit6 = Utils.selectedIndicatorColor
+//            habitNames.append(habit6)
+        }
     
     func generateLabels() {
         for index in 0...6 {
@@ -261,7 +254,84 @@ class HomeViewController : UITabBarController {
         }
     }
     
-  
+    func hobitNamesFunc() {
+        for index in 0...6 {
+            let hobit: String = {
+                let hob = String("Hobit \(index)")
+                
+                return hob
+            }()
+            hobitNames.append(hobit)
+        }
+    }
+    
+    
+    func setupTable() {
+        self.tableView = {
+            let tableView = UITableView()
+            tableView.translatesAutoresizingMaskIntoConstraints = false
+            tableView.delegate = self
+            tableView.dataSource = self
+            tableView.backgroundColor = .clear
+            return tableView
+        }()
+        setupTableView()
+    }
+    
+    func setupTableView(){
+        self.tableView!.dataSource = self
+        self.tableView!.delegate = self
+        self.tableView!.separatorStyle = .none
+        self.tableView!.register(CustomTableViewCell.self, forCellReuseIdentifier: "cell1")
+        self.tableView!.alwaysBounceVertical = true
+        self.tableView!.isPagingEnabled = true
+        self.tableView!.showsHorizontalScrollIndicator = false
+        
+        self.tableView!.rowHeight = UITableView.automaticDimension
+        self.tableView!.estimatedRowHeight = 70
+        self.tableView!.clipsToBounds = true
+        self.tableView!.bounces =  (self.tableView!.contentOffset.y) > 100
+        self.tableView!.backgroundColor = .clear
+       
+    }
+    
+    func tableRow(){
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+            collectionView.translatesAutoresizingMaskIntoConstraints = false
+            self.view.addSubview(collectionView)
+            NSLayoutConstraint.activate([
+                self.view.topAnchor.constraint(equalTo: collectionView.topAnchor),
+                self.view.bottomAnchor.constraint(equalTo: collectionView.bottomAnchor),
+                self.view.leadingAnchor.constraint(equalTo: collectionView.leadingAnchor),
+                self.view.trailingAnchor.constraint(equalTo: collectionView.trailingAnchor),
+            ])
+            self.collectionView = collectionView
+    }
+    
+    func setupCollectionView(){
+        self.collectionView.dataSource = self
+        self.collectionView.delegate = self
+        self.collectionView.register(WeekCellHomePage.self, forCellWithReuseIdentifier: WeekCellHomePage.identifier)
+        self.collectionView.alwaysBounceVertical = true
+        self.collectionView.isPagingEnabled = true
+        self.collectionView.showsHorizontalScrollIndicator = false
+        self.collectionView.clipsToBounds = true
+        self.collectionView.bounces =  self.collectionView.contentOffset.y > 100
+        self.collectionView.backgroundColor = .clear
+    }
+    
+    func addColors(colorName : String, number : Int) {
+        for _ in 0...number {
+            let color: ColorCellPage = {
+                let day = ColorCellPage(color: UIColor(named: colorName)!)
+                day.translatesAutoresizingMaskIntoConstraints = false
+                return day
+            }()
+            colors.append(color)
+        }
+    }
 }
 
       //MARK:- Extensions
@@ -280,9 +350,8 @@ extension HomeViewController: UICollectionViewDataSource {
         DispatchQueue.main.async {
         cell.customView.dayLabel.text = self.weekDays[indexPath.item].day
         cell.customView.weekDayLabel.text = self.weekDays[indexPath.item].week
-            cell.backgroundColor = .white
-            cell.layer.cornerRadius = 12
-            
+        cell.backgroundColor = .white
+        cell.layer.cornerRadius = 12
         }
         return cell
     }
@@ -298,11 +367,10 @@ extension HomeViewController: UICollectionViewDelegate {
 extension HomeViewController: UICollectionViewDelegateFlowLayout {
 
   
-    
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 50, height: 50)
+        return CGSize(width: 54, height: 54)
     }
 
     func collectionView(_ collectionView: UICollectionView,
@@ -321,5 +389,76 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
                         layout collectionViewLayout: UICollectionViewLayout,
                         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 10
+    }
+}
+
+extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return habitNames.count
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+            return 80
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+            return CGFloat.leastNormalMagnitude
+    }
+
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        return UIView()
+    }
+
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        // 1
+        let headerView = UIView()
+        // 2
+        headerView.backgroundColor = .clear
+        // 3
+        return headerView
+    }
+    
+    // separete cell
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 6
+    }
+    
+    func tableView(_ tableView: UITableView, estimatedHeightForFooterInSection section: Int) -> CGFloat {
+        return 6
+    }
+
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell1", for: indexPath) as! CustomTableViewCell
+//        DispatchQueue.main.async {
+            self.colors.removeAll()
+            self.addColors(colorName: self.habitNames[indexPath.row],number: 15)
+            cell.habitName = self.hobitNames[indexPath.row]
+            cell.colors = self.colors
+//            let selected  = UIView()
+//            selected.backgroundColor = .white
+//            cell.selectedBackgroundView = selected
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+            cell.backgroundColor = .clear
+            cell.layer.cornerRadius = 12
+//        }
+        return cell
+    }
+
+
+}
+
+extension UIView {
+   func roundCorners(corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: CGSize(width: radius, height: radius))
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        layer.mask = mask
     }
 }

@@ -24,7 +24,7 @@ class ColorCellPage: UICollectionViewCell {
     
         init(color : UIColor) {
             super.init(frame: .zero)
-            self.color=color
+            self.color = color
             colorView = UIView()
             colorView.translatesAutoresizingMaskIntoConstraints = false
             colorView.frame = CGRect(x: 0, y: 0, width: 54, height: 54)

@@ -9,6 +9,9 @@ import UIKit
 
 class MyTabBarCtrl : UITabBarController, UITabBarControllerDelegate {
     
+    var button = UIButton(type: .custom)
+    var bool : Bool = true
+    
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
 
@@ -36,15 +39,11 @@ class MyTabBarCtrl : UITabBarController, UITabBarControllerDelegate {
         tabBar.backgroundColor = UIColor.clear
         tabBar.backgroundImage = UIImage()
         tabBar.shadowImage = UIImage()
-    
-//
-        if #available(iOS 13.0, *) {
+        
             let customizator = TabBarCustomizator()
             customizator.myTabBar = tabBar
             customizator.customize()
-        } else {
-            // Fallback on earlier versions
-        }
+      
         
         
         let homeController = HomeViewController()
@@ -80,20 +79,20 @@ class MyTabBarCtrl : UITabBarController, UITabBarControllerDelegate {
     
     
     private func addCenterButton() {
-        let button = UIButton(type: .custom)
+        button = UIButton(type: .custom)
         button.setImage(#imageLiteral(resourceName: "tab-middle"), for: .normal )
-//        button.setTitle("SALAM", for: .normal)
+        bool = true
         let square = self.tabBar.frame.size.height
         button.frame = CGRect(x: 0, y: 0, width: square, height: square)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.center = self.tabBar.center
-        
-//        button.backgroundColor = .red
+
 
         self.view.addSubview(button)
         self.view.bringSubviewToFront(button)
         
-        button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -60).isActive = true
+        button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -button.frame.height-10).isActive = true
+//        button.bottomAnchor.constraint(equalToSystemSpacingBelow: view.bottomAnchor, multiplier: 0.3).isActive = true
         button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 
         button.addTarget(self, action: #selector(didTouchCenterButton(_:)), for: .touchUpInside)
@@ -101,7 +100,13 @@ class MyTabBarCtrl : UITabBarController, UITabBarControllerDelegate {
 
     @objc
     private func didTouchCenterButton(_ sender: AnyObject) {
-        print("!!")
+        if bool {
+            button.setImage(#imageLiteral(resourceName: "check"), for: .normal )
+            bool = false
+        }else {
+            button.setImage(#imageLiteral(resourceName: "tab-middle"), for: .normal )
+            bool = true 
+        }
     }
     
 

@@ -41,4 +41,5 @@ struct Utils {
     static let third_unselected = "third_unselected"
     static let fourd_unselected = "fourd_unselected"
     static let home_page_background = "home_page_background"
+    static let save_hobit_button = "check"
 }

@@ -9,9 +9,9 @@ import UIKit
 
 class WeekCellHomePage: UICollectionViewCell {
     
-    static var identifier: String = "Cell"
+        static var identifier: String = "Cell"
 
-        weak var customView: CustomWeekDayHomePage!
+         var customView: CustomWeekDayHomePage!
 
         override init(frame: CGRect) {
             super.init(frame: frame)
@@ -19,6 +19,7 @@ class WeekCellHomePage: UICollectionViewCell {
             let customView = CustomWeekDayHomePage(day: "1", week: "mon")
             customView.translatesAutoresizingMaskIntoConstraints = false
             self.contentView.addSubview(customView)
+            
             NSLayoutConstraint.activate([
                 self.contentView.centerXAnchor.constraint(equalTo: customView.centerXAnchor),
                 self.contentView.centerYAnchor.constraint(equalTo: customView.centerYAnchor),

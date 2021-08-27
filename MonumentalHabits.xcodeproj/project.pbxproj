@@ -26,6 +26,7 @@
 		C489A51F26D67B2C008EE4D4 /* WeekCellHomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489A51E26D67B2C008EE4D4 /* WeekCellHomePage.swift */; };
 		C489A52126D77844008EE4D4 /* CustomHabitCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489A52026D77844008EE4D4 /* CustomHabitCollectionView.swift */; };
 		C489A52326D79AFF008EE4D4 /* ColorCellPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489A52226D79AFF008EE4D4 /* ColorCellPage.swift */; };
+		C489A52526D8ACE0008EE4D4 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489A52426D8ACE0008EE4D4 /* CustomTableViewCell.swift */; };
 		C4CCEADE26C52B2C0036818C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCEADD26C52B2C0036818C /* AppDelegate.swift */; };
 		C4CCEAE226C52B2C0036818C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCEAE126C52B2C0036818C /* ViewController.swift */; };
 		C4CCEAEA26C52B2F0036818C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4CCEAE826C52B2F0036818C /* LaunchScreen.storyboard */; };
@@ -55,6 +56,7 @@
 		C489A51E26D67B2C008EE4D4 /* WeekCellHomePage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekCellHomePage.swift; sourceTree = "<group>"; };
 		C489A52026D77844008EE4D4 /* CustomHabitCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHabitCollectionView.swift; sourceTree = "<group>"; };
 		C489A52226D79AFF008EE4D4 /* ColorCellPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCellPage.swift; sourceTree = "<group>"; };
+		C489A52426D8ACE0008EE4D4 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
 		C4CCEADA26C52B2C0036818C /* MonumentalHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonumentalHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CCEADD26C52B2C0036818C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4CCEAE126C52B2C0036818C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				C489A4FA26CFDA90008EE4D4 /* CustomSignTitleWithLine.swift */,
 				C489A51B26D66540008EE4D4 /* CustomWeekDayHomePage.swift */,
 				C489A52026D77844008EE4D4 /* CustomHabitCollectionView.swift */,
+				C489A52426D8ACE0008EE4D4 /* CustomTableViewCell.swift */,
 			);
 			path = CustomizedClass;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 			files = (
 				C4CCEB0226C6A05F0036818C /* LoginViewController.swift in Sources */,
 				C489A4F726CFCB34008EE4D4 /* CustomCheckBox.swift in Sources */,
+				C489A52526D8ACE0008EE4D4 /* CustomTableViewCell.swift in Sources */,
 				C489A52126D77844008EE4D4 /* CustomHabitCollectionView.swift in Sources */,
 				C4CCEAE226C52B2C0036818C /* ViewController.swift in Sources */,
 				C489A51226D4EDAB008EE4D4 /* TabBarCustomizator.swift in Sources */,
