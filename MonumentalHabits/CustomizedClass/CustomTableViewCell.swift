@@ -116,6 +116,11 @@ extension CustomTableViewCell: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCellPage.identifier, for: indexPath) as! ColorCellPage
 //           DispatchQueue.main.async {
             cell.color = self.colors[indexPath.item].color
+        
+            let borderWidth: CGFloat = 4
+            cell.layer.masksToBounds = true
+            cell.layer.borderWidth = borderWidth
+            cell.layer.borderColor = UIColor(ciColor: .black).withAlphaComponent(0.01).cgColor
             cell.backgroundColor = self.colors[indexPath.item].color
             cell.layer.cornerRadius = 12
             
