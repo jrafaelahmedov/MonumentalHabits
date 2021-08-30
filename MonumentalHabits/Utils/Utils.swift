@@ -42,4 +42,7 @@ struct Utils {
     static let fourd_unselected = "fourd_unselected"
     static let home_page_background = "home_page_background"
     static let save_hobit_button = "check"
+    static let half_color = "half_color"
+    static let full_color = "full_image_item"
+    static let image = "image"
 }

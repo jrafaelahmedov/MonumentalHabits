@@ -193,7 +193,6 @@ class HomeViewController : UITabBarController {
             profileImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
 //
             homeImage.topAnchor.constraint(equalTo: homeLabel.bottomAnchor, constant: 30),
-
             homeImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 18),
             homeImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -18),
             homeImage.heightAnchor.constraint(equalToConstant: 145),

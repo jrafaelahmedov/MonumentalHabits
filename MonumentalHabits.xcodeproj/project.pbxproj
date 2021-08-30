@@ -27,6 +27,7 @@
 		C489A52126D77844008EE4D4 /* CustomHabitCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489A52026D77844008EE4D4 /* CustomHabitCollectionView.swift */; };
 		C489A52326D79AFF008EE4D4 /* ColorCellPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489A52226D79AFF008EE4D4 /* ColorCellPage.swift */; };
 		C489A52526D8ACE0008EE4D4 /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489A52426D8ACE0008EE4D4 /* CustomTableViewCell.swift */; };
+		C489A52726DCB4EF008EE4D4 /* NewHabitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C489A52626DCB4EE008EE4D4 /* NewHabitController.swift */; };
 		C4CCEADE26C52B2C0036818C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCEADD26C52B2C0036818C /* AppDelegate.swift */; };
 		C4CCEAE226C52B2C0036818C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CCEAE126C52B2C0036818C /* ViewController.swift */; };
 		C4CCEAEA26C52B2F0036818C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4CCEAE826C52B2F0036818C /* LaunchScreen.storyboard */; };
@@ -57,6 +58,7 @@
 		C489A52026D77844008EE4D4 /* CustomHabitCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomHabitCollectionView.swift; sourceTree = "<group>"; };
 		C489A52226D79AFF008EE4D4 /* ColorCellPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorCellPage.swift; sourceTree = "<group>"; };
 		C489A52426D8ACE0008EE4D4 /* CustomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		C489A52626DCB4EE008EE4D4 /* NewHabitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabitController.swift; sourceTree = "<group>"; };
 		C4CCEADA26C52B2C0036818C /* MonumentalHabits.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MonumentalHabits.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4CCEADD26C52B2C0036818C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4CCEAE126C52B2C0036818C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -129,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				C489A50026D3CC61008EE4D4 /* HomeViewController.swift */,
+				C489A52626DCB4EE008EE4D4 /* NewHabitController.swift */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";
@@ -346,6 +349,7 @@
 				C489A50126D3CC61008EE4D4 /* HomeViewController.swift in Sources */,
 				C489A51626D4FEB8008EE4D4 /* MyTabBarCtrl.swift in Sources */,
 				C47A6C4B26CE357E003AB8C4 /* SignUpViewController.swift in Sources */,
+				C489A52726DCB4EF008EE4D4 /* NewHabitController.swift in Sources */,
 				C489A4FB26CFDA90008EE4D4 /* CustomSignTitleWithLine.swift in Sources */,
 				C489A4F926CFCBB4008EE4D4 /* CustomCheckBoxWithText.swift in Sources */,
 				C489A51026D4ECD4008EE4D4 /* MainViewController.swift in Sources */,

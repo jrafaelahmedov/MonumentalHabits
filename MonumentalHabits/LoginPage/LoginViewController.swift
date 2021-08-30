@@ -327,8 +327,9 @@ class LoginViewController : UIViewController {
 //           window.rootViewController = navigationController
 //           window.makeKeyAndVisible()
         
-        let viewController = MainViewController()
-        self.navigationController?.pushViewController(viewController, animated: true)
+        let viewController = MyTabBarCtrl()
+        navigationController?.setViewControllers([viewController], animated: true)
+        
     }
     
     @objc func backAction(){

@@ -10,7 +10,6 @@ import UIKit
 class MyTabBarCtrl : UITabBarController, UITabBarControllerDelegate {
     
     var button = UIButton(type: .custom)
-    var bool : Bool = true
     
     override func viewWillAppear(_ animated: Bool) {
             super.viewWillAppear(animated)
@@ -22,6 +21,7 @@ class MyTabBarCtrl : UITabBarController, UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
+        self.tabBarController?.delegate = self
 
         tabBar.backgroundColor = UIColor.clear
         tabBar.backgroundImage = UIImage()
@@ -41,8 +41,9 @@ class MyTabBarCtrl : UITabBarController, UITabBarControllerDelegate {
         homeController2.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0);
         
             
-        let homeController3 = HomeViewController()
+        let homeController3 = NewHabitController()
         homeController3.tabBarItem = UITabBarItem(title: .none, image: UIImage(), tag: 2)
+    
         
         
         let homeController4 = HomeViewController()
@@ -57,13 +58,14 @@ class MyTabBarCtrl : UITabBarController, UITabBarControllerDelegate {
         
         let viewControllerList = [ homeController, homeController2,homeController3, homeController4, homeController5 ]
         viewControllers = viewControllerList
+        
+        self.tabBar.items![2].isEnabled = false
     }
     
     
     private func addCenterButton() {
         button = UIButton(type: .custom)
-        button.setImage(#imageLiteral(resourceName: "tab-middle"), for: .normal )
-        bool = true
+        changeMiddleButton(status: 0)
         let square = self.tabBar.frame.size.height
         button.frame = CGRect(x: 0, y: 0, width: square, height: square)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -74,19 +76,40 @@ class MyTabBarCtrl : UITabBarController, UITabBarControllerDelegate {
         self.view.bringSubviewToFront(button)
         button.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -button.frame.height-10).isActive = true
         button.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        button.addTarget(self, action: #selector(didTouchCenterButton(_:)), for: .touchUpInside)
+            button.addTarget(self, action: #selector(didTouchCenterButton(_:)), for: .touchUpInside)
     }
 
     @objc
     private func didTouchCenterButton(_ sender: AnyObject) {
-        if bool {
-            button.setImage(#imageLiteral(resourceName: "check"), for: .normal )
-            bool = false
-        }else {
+        self.selectedIndex = 2
+        changeMiddleButton(status: 1)
+    }
+    
+    func changeMiddleButton(status: Int) {
+        if (status == 0) {
             button.setImage(#imageLiteral(resourceName: "tab-middle"), for: .normal )
-            bool = true 
+        } else {
+            button.setImage(#imageLiteral(resourceName: "check"), for: .normal )
         }
     }
     
+    
+//    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
+//        if self.selectedIndex == 0 {
+//            button.setImage(#imageLiteral(resourceName: "tab-middle"), for: .normal )
+//        }
+//    }
+//
+//
+//
+//    func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
+//
+//           let selectedIndex = tabBarController.viewControllers?.firstIndex(of: viewController)!
+//           if selectedIndex == 0 {
+//               print("first tab bar was selected")
+//           } else {
+//               //do whatever
+//           }
+//       }
 
 }
