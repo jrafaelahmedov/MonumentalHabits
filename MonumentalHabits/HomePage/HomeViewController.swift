@@ -227,13 +227,13 @@ class HomeViewController : UITabBarController {
     
     
         func addHabits() {
-            let habit = Utils.lineColor
+            let habit = Utils.orangeColor
             habitNames.append(habit)
-            let habit1 = Utils.milkColor
+            let habit1 = Utils.selectedIndicatorColor
             habitNames.append(habit1)
             let habit2 = Utils.textColor
             habitNames.append(habit2)
-            let habit3 = Utils.orangeColor
+            let habit3 = Utils.titleTextColor
             habitNames.append(habit3)
 //            let habit4 = Utils.titleTextColor
 //            habitNames.append(habit4)
@@ -257,7 +257,7 @@ class HomeViewController : UITabBarController {
     func hobitNamesFunc() {
         for index in 0...6 {
             let hobit: String = {
-                let hob = String("Hobit \(index)")
+                let hob = String("Habit \(index)")
                 
                 return hob
             }()

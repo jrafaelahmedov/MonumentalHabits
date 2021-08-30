@@ -29,11 +29,13 @@ class ColorCellPage: UICollectionViewCell {
             colorView.translatesAutoresizingMaskIntoConstraints = false
             colorView.frame = CGRect(x: 0, y: 0, width: 54, height: 54)
             let borderWidth: CGFloat = 2
-            colorView.frame = colorView.frame.insetBy(dx: -borderWidth, dy: -borderWidth)
-            colorView.layer.borderColor = color.withAlphaComponent(0.1).cgColor
-            colorView.layer.borderWidth = borderWidth
+//            colorView.frame = colorView.frame.insetBy(dx: -borderWidth, dy: -borderWidth)
+            colorView.layer.masksToBounds = true
             colorView.backgroundColor = color
             colorView.layer.cornerRadius = 12
+            colorView.layer.borderWidth = borderWidth
+            colorView.layer.borderColor = UIColor(ciColor: .black).withAlphaComponent(0.5).cgColor
+            
             
             self.contentView.addSubview(colorView)
              NSLayoutConstraint.activate([
