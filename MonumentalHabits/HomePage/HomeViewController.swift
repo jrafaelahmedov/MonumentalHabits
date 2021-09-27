@@ -104,7 +104,8 @@ class HomeViewController : UITabBarController {
     
     var tableView: UITableView? = nil
     var habitNames : [String] = []
-    var colors : [ColorCellPage] = []
+//    var colors : [ColorCellPage] = []
+    var colors : [UIColor] = []
     var collectionView: UICollectionView!
     var weekDays : [CustomWeekDayHomePage] = []
     var days: [String] = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
@@ -321,16 +322,23 @@ class HomeViewController : UITabBarController {
         self.collectionView.backgroundColor = .clear
     }
     
+//    func addColors(colorName : String, number : Int) {
+//        for _ in 0...number {
+//            let color: ColorCellPage = {
+//                let day = ColorCellPage(color: UIColor(named: colorName)!)
+//                day.translatesAutoresizingMaskIntoConstraints = false
+//                return day
+//            }()
+//            colors.append(color)
+//        }
+//    }
+    
     func addColors(colorName : String, number : Int) {
-        for _ in 0...number {
-            let color: ColorCellPage = {
-                let day = ColorCellPage(color: UIColor(named: colorName)!)
-                day.translatesAutoresizingMaskIntoConstraints = false
-                return day
-            }()
-            colors.append(color)
+            for _ in 0...number {
+                let color = UIColor(named: colorName)
+                colors.append(color!)
+            }
         }
-    }
 }
 
       //MARK:- Extensions

@@ -10,7 +10,8 @@ import UIKit
 class CustomTableViewCell: UITableViewCell {
     
     let customHabitCollectionView: UIView? = nil
-    var colors : [ColorCellPage] = []
+//    var colors : [ColorCellPage] = []
+    var colors : [UIColor] = []
     var habitNameLabel : UILabel!
     var collectionView: UICollectionView!
     var line : UIView!
@@ -114,21 +115,18 @@ extension CustomTableViewCell: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ColorCellPage.identifier, for: indexPath) as! ColorCellPage
-//           DispatchQueue.main.async {
-//            cell.color = self.colors[indexPath.item].color
-        
-//        let borderWidth: CGFloat = 1.5
-//            cell.layoutMargins = UIEdgeInsets(top: 1, left: 1, bottom: 1, right: 1);
-//            cell.layer.masksToBounds = true
-//            cell.layer.borderWidth = borderWidth
-        
-//        cell.layer.borderColor = UIColor.init(ciColor: .white).withAlphaComponent(0.3).cgColor
-               
-        cell.backgroundColor =  UIColor.init(ciColor: .blue).withAlphaComponent(0.1)
-        cell.color = self.colors[indexPath.item].color
+           DispatchQueue.main.async {
+        cell.backgroundColor = self.colors[indexPath.item].withAlphaComponent(0.1)
+//        cell.backgroundColor =  UIColor.init(ciColor: .blue).withAlphaComponent(0.1)
+        cell.color = self.colors[indexPath.item]
+//        print("colors : \(self.colors[indexPath.item])")
           cell.layer.cornerRadius = 12
-            
+//        if cell.half {
+//            cell.half = false
+//        }else {
+            cell.half = true
 //        }
+        }
         return cell
     }
 }
@@ -145,7 +143,7 @@ extension CustomTableViewCell: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 54, height: 54)
+        return CGSize(width: 50, height: 50)
     }
 
     func collectionView(_ collectionView: UICollectionView,
